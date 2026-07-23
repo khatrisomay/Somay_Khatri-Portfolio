@@ -45,8 +45,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 3.5. SMOOTH ANCHOR LINK CLICK & NAVBAR ACTIVE ANIMATIONS
-    const navItems = document.querySelectorAll('.nav-menu-item');
+    // 3.5. SEO FRIENDLY DEEP-LINKING & URL HASH ROUTING
+    const navItems = document.querySelectorAll('.nav-menu-item, .mobile-drawer-link');
+    
+    function setActiveNavLink(targetHash) {
+        navItems.forEach(item => {
+            if (item.getAttribute('href') === targetHash) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    }
+
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener('click', (e) => {
             const targetId = anchor.getAttribute('href');
@@ -55,19 +66,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (targetEl) {
                     e.preventDefault();
                     
-                    // Click press animation effect
                     anchor.classList.add('clicking');
                     setTimeout(() => anchor.classList.remove('clicking'), 300);
 
-                    // Update active nav button immediately
-                    navItems.forEach(item => {
-                        if (item.getAttribute('href') === targetId) {
-                            item.classList.add('active');
-                            gsap.fromTo(item, { scale: 0.88 }, { scale: 1.06, duration: 0.4, ease: 'back.out(1.8)' });
-                        } else {
-                            item.classList.remove('active');
-                        }
-                    });
+                    // Update URL Hash for SEO & Refresh Persistence
+                    if (history.pushState) {
+                        history.pushState(null, null, targetId);
+                    } else {
+                        window.location.hash = targetId;
+                    }
+
+                    setActiveNavLink(targetId);
 
                     // Smooth Lenis Scroll
                     lenis.scrollTo(targetEl, {
@@ -80,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // SCROLLSPY ACTIVE HIGHLIGHT ANIMATION FOR ALL SECTIONS
+    // SCROLLSPY THAT UPDATES URL HASH & ACTIVE NAV BUTTON AS YOU SCROLL
     const trackedSections = document.querySelectorAll('section[id]');
     trackedSections.forEach((section) => {
         ScrollTrigger.create({
@@ -90,18 +99,35 @@ document.addEventListener('DOMContentLoaded', () => {
             onToggle: (self) => {
                 if (self.isActive) {
                     const id = section.getAttribute('id');
-                    navItems.forEach((item) => {
-                        if (item.getAttribute('href') === `#${id}`) {
-                            item.classList.add('active');
-                            gsap.fromTo(item, { scale: 0.9 }, { scale: 1.06, duration: 0.4, ease: 'back.out(1.7)' });
-                        } else {
-                            item.classList.remove('active');
-                        }
-                    });
+                    const hash = `#${id}`;
+                    setActiveNavLink(hash);
+                    if (history.replaceState) {
+                        history.replaceState(null, null, hash);
+                    }
                 }
             }
         });
     });
+
+    // HANDLE PAGE REFRESH OR DIRECT DEEP LINKING VIA URL HASH
+    function handleInitialHashScroll() {
+        if (window.location.hash) {
+            const initialTarget = document.querySelector(window.location.hash);
+            if (initialTarget) {
+                setActiveNavLink(window.location.hash);
+                setTimeout(() => {
+                    lenis.scrollTo(initialTarget, {
+                        offset: -70,
+                        duration: 1,
+                        immediate: false
+                    });
+                }, 350);
+            }
+        }
+    }
+    
+    // Trigger initial hash scroll after preloader dismissal
+    setTimeout(handleInitialHashScroll, 850);
 
     // 3.6. GSAP STAGGERED ENTRANCE ANIMATIONS FOR ALL SECTIONS
 
