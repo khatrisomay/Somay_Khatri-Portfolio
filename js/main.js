@@ -61,20 +61,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     requestAnimationFrame(raf);
 
-    // 3. HEADER SCROLL MORPHING (GSAP + SCROLLTRIGGER)
+    // 3. DYNAMIC SECTION-AWARE NAVBAR COLOR MORPHING (Light vs Dark sections)
     gsap.registerPlugin(ScrollTrigger);
 
-    ScrollTrigger.create({
-        trigger: '#hero',
-        start: 'top top+=50',
-        end: 'bottom top',
-        onToggle: (self) => {
-            if (!self.isActive) {
-                document.body.classList.add('scrolled');
-            } else {
-                document.body.classList.remove('scrolled');
-            }
-        }
+    const darkSections = document.querySelectorAll('.section-dark, .footer');
+    darkSections.forEach(section => {
+        ScrollTrigger.create({
+            trigger: section,
+            start: 'top top+=60',
+            end: 'bottom top+=60',
+            onEnter: () => document.body.classList.add('scrolled'),
+            onEnterBack: () => document.body.classList.add('scrolled'),
+            onLeave: () => document.body.classList.remove('scrolled'),
+            onLeaveBack: () => document.body.classList.remove('scrolled')
+        });
     });
 
     // Force page to always start at the Home page (#hero) on refresh
