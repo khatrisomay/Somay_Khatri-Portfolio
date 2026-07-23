@@ -302,4 +302,47 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // 9. ANIMATED TERMINAL TYPEWRITER LOGIC
+    const terminalCommands = [
+        { text: 'terraform apply -auto-approve', cmdId: 'cmd1', statusId: 'status1' },
+        { text: 'docker build -t app:v2 .', cmdId: 'cmd2', statusId: 'status2' },
+        { text: 'kubectl get pods --namespace=prod', cmdId: 'cmd3', statusId: 'status3' }
+    ];
+
+    function typeWriterCommand(cmdObj, charIndex, callback) {
+        const el = document.getElementById(cmdObj.cmdId);
+        if (!el) return;
+
+        if (charIndex < cmdObj.text.length) {
+            el.textContent += cmdObj.text.charAt(charIndex);
+            setTimeout(() => typeWriterCommand(cmdObj, charIndex + 1, callback), 35);
+        } else {
+            const statusEl = document.getElementById(cmdObj.statusId);
+            if (statusEl) {
+                statusEl.classList.add('visible');
+            }
+            setTimeout(callback, 600);
+        }
+    }
+
+    function runTerminalSequence() {
+        terminalCommands.forEach(c => {
+            const cmdEl = document.getElementById(c.cmdId);
+            const statusEl = document.getElementById(c.statusId);
+            if (cmdEl) cmdEl.textContent = '';
+            if (statusEl) statusEl.classList.remove('visible');
+        });
+
+        typeWriterCommand(terminalCommands[0], 0, () => {
+            typeWriterCommand(terminalCommands[1], 0, () => {
+                typeWriterCommand(terminalCommands[2], 0, () => {
+                    setTimeout(runTerminalSequence, 6000); // Re-run sequence loop after 6 seconds
+                });
+            });
+        });
+    }
+
+    // Start terminal typing sequence after hero entrance
+    setTimeout(runTerminalSequence, 1000);
+
 });

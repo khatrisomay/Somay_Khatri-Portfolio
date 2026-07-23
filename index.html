@@ -180,7 +180,7 @@
             </div>
 
             <!-- Hero Live Terminal Console & System Status Widget -->
-            <div class="hero-terminal-widget">
+            <div class="hero-terminal-widget" id="terminalWidget">
                 <div class="terminal-header">
                     <div class="terminal-dots">
                         <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
@@ -188,10 +188,10 @@
                     <span class="terminal-title">somay@devops-node:~ (aws-us-east-1)</span>
                     <span class="terminal-badge"><span class="pulse-green"></span> SYSTEM LIVE</span>
                 </div>
-                <div class="terminal-body">
-                    <div class="terminal-line"><span class="prompt">$</span> <span class="cmd">terraform apply -auto-approve</span> <span class="status-ok">✔ 4 resources created</span></div>
-                    <div class="terminal-line"><span class="prompt">$</span> <span class="cmd">docker build -t app:v2 .</span> <span class="status-ok">✔ Multi-stage image 42MB</span></div>
-                    <div class="terminal-line"><span class="prompt">$</span> <span class="cmd">kubectl get pods --namespace=prod</span> <span class="status-ok">3/3 Running (100% healthy)</span></div>
+                <div class="terminal-body" id="terminalBody">
+                    <div class="terminal-line"><span class="prompt">$</span> <span class="cmd-typewriter" id="cmd1"></span><span class="status-ok" id="status1">✔ 4 resources created</span></div>
+                    <div class="terminal-line"><span class="prompt">$</span> <span class="cmd-typewriter" id="cmd2"></span><span class="status-ok" id="status2">✔ Multi-stage image 42MB</span></div>
+                    <div class="terminal-line"><span class="prompt">$</span> <span class="cmd-typewriter" id="cmd3"></span><span class="status-ok" id="status3">3/3 Running (100% healthy)</span></div>
                 </div>
             </div>
 
