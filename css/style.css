@@ -1442,6 +1442,83 @@ body.scrolled .nav-menu-item:hover {
         cursor: pointer;
         padding: 5px;
     }
+/* HERO ANIMATED DEVOPS INFINITE LOOP WIDGET */
+.devops-loop-widget {
+    background: #0D0D0D;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 20px;
+    padding: 1.5rem 2rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+    color: #fff;
+    transition: var(--transition-smooth);
+}
+
+.devops-loop-widget:hover {
+    border-color: #000;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.loop-header {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.loop-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--yellow);
+    letter-spacing: 0.12em;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.loop-title {
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+}
+
+.loop-body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.infinity-svg {
+    width: 100%;
+    max-width: 680px;
+    height: auto;
+}
+
+.animated-infinity-beam {
+    stroke-dasharray: 120 400;
+    stroke-dashoffset: 0;
+    animation: infinityFlow 6s linear infinite;
+}
+
+@keyframes infinityFlow {
+    0% { stroke-dashoffset: 520; }
+    100% { stroke-dashoffset: 0; }
+}
+
+.loop-node circle, .loop-node-center circle {
+    transition: all 0.3s ease;
+}
+
+.loop-node:hover circle {
+    fill: var(--yellow);
+    stroke: #000;
+}
+
+.loop-node:hover text {
+    fill: #000;
+}
+
 /* HERO LIVE TERMINAL CONSOLE WIDGET */
 .hero-terminal-widget {
     background: #0A0A0A;

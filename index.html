@@ -184,6 +184,86 @@
                 </div>
             </div>
 
+            <!-- Hero Animated DevOps Infinite Loop Lifecycle Widget -->
+            <div class="devops-loop-widget">
+                <div class="loop-header">
+                    <span class="loop-tag">CONTINUOUS INTEGRATION & DEPLOYMENT</span>
+                    <h3 class="loop-title">THE DEVOPS INFINITE LIFECYCLE (ENDLESS AUTOMATION)</h3>
+                </div>
+                <div class="loop-body">
+                    <svg class="infinity-svg" viewBox="0 0 700 200" fill="none">
+                        <defs>
+                            <linearGradient id="infinityGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#FFFF23" />
+                                <stop offset="50%" stop-color="#10B981" />
+                                <stop offset="100%" stop-color="#3B82F6" />
+                            </linearGradient>
+                            <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
+                                <feGaussianBlur stdDeviation="4" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                        </defs>
+
+                        <!-- Base Loop Track -->
+                        <path d="M 200 100 C 270 30, 430 170, 500 100 C 570 30, 650 30, 650 100 C 650 170, 570 170, 500 100 C 430 30, 270 170, 200 100 C 130 30, 50 30, 50 100 C 50 170, 130 170, 200 100 Z" 
+                              stroke="rgba(0, 0, 0, 0.15)" stroke-width="8" stroke-linecap="round"/>
+
+                        <!-- Animated Glowing Beam Line -->
+                        <path d="M 200 100 C 270 30, 430 170, 500 100 C 570 30, 650 30, 650 100 C 650 170, 570 170, 500 100 C 430 30, 270 170, 200 100 C 130 30, 50 30, 50 100 C 50 170, 130 170, 200 100 Z" 
+                              stroke="url(#infinityGradient)" stroke-width="5" stroke-linecap="round" filter="url(#glowFilter)" class="animated-infinity-beam"/>
+
+                        <!-- Stage Nodes (DEV) -->
+                        <g class="loop-node" transform="translate(100, 38)">
+                            <circle cx="0" cy="0" r="18" fill="#121212" stroke="#FFFF23" stroke-width="2"/>
+                            <text x="0" y="4" text-anchor="middle" font-size="10" font-weight="900" fill="#FFFF23">PLAN</text>
+                        </g>
+
+                        <g class="loop-node" transform="translate(50, 100)">
+                            <circle cx="0" cy="0" r="18" fill="#121212" stroke="#FFFF23" stroke-width="2"/>
+                            <text x="0" y="4" text-anchor="middle" font-size="10" font-weight="900" fill="#FFFF23">CODE</text>
+                        </g>
+
+                        <g class="loop-node" transform="translate(100, 162)">
+                            <circle cx="0" cy="0" r="18" fill="#121212" stroke="#FFFF23" stroke-width="2"/>
+                            <text x="0" y="4" text-anchor="middle" font-size="9" font-weight="900" fill="#FFFF23">BUILD</text>
+                        </g>
+
+                        <g class="loop-node" transform="translate(235, 100)">
+                            <circle cx="0" cy="0" r="18" fill="#121212" stroke="#FFFF23" stroke-width="2"/>
+                            <text x="0" y="4" text-anchor="middle" font-size="9" font-weight="900" fill="#FFFF23">TEST</text>
+                        </g>
+
+                        <!-- Center Intersection Node (CI/CD) -->
+                        <g class="loop-node-center" transform="translate(350, 100)">
+                            <circle cx="0" cy="0" r="26" fill="#000" stroke="#10B981" stroke-width="3"/>
+                            <text x="0" y="2" text-anchor="middle" font-size="10" font-weight="900" fill="#10B981">CI/CD</text>
+                            <text x="0" y="12" text-anchor="middle" font-size="7" font-weight="700" fill="#fff">JENKINS</text>
+                        </g>
+
+                        <!-- Stage Nodes (OPS) -->
+                        <g class="loop-node" transform="translate(465, 100)">
+                            <circle cx="0" cy="0" r="18" fill="#121212" stroke="#3B82F6" stroke-width="2"/>
+                            <text x="0" y="4" text-anchor="middle" font-size="8" font-weight="900" fill="#3B82F6">RELEASE</text>
+                        </g>
+
+                        <g class="loop-node" transform="translate(600, 38)">
+                            <circle cx="0" cy="0" r="18" fill="#121212" stroke="#3B82F6" stroke-width="2"/>
+                            <text x="0" y="4" text-anchor="middle" font-size="8" font-weight="900" fill="#3B82F6">DEPLOY</text>
+                        </g>
+
+                        <g class="loop-node" transform="translate(650, 100)">
+                            <circle cx="0" cy="0" r="18" fill="#121212" stroke="#3B82F6" stroke-width="2"/>
+                            <text x="0" y="4" text-anchor="middle" font-size="8" font-weight="900" fill="#3B82F6">OPERATE</text>
+                        </g>
+
+                        <g class="loop-node" transform="translate(600, 162)">
+                            <circle cx="0" cy="0" r="18" fill="#121212" stroke="#3B82F6" stroke-width="2"/>
+                            <text x="0" y="4" text-anchor="middle" font-size="7" font-weight="900" fill="#3B82F6">MONITOR</text>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
             <!-- Hero Live Terminal Console & System Status Widget -->
             <div class="hero-terminal-widget" id="terminalWidget">
                 <div class="terminal-header">
