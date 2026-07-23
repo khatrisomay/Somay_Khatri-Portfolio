@@ -77,6 +77,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Force page to always start at the Home page (#hero) on refresh
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+        if (typeof lenis !== 'undefined' && lenis) {
+            lenis.scrollTo(0, { immediate: true });
+        }
+        if (history.replaceState) {
+            history.replaceState(null, null, window.location.pathname);
+        }
+        setActiveNavLink('#hero');
+    }, 50);
+
     // 3.5. SEO FRIENDLY DEEP-LINKING & URL HASH ROUTING
     const navItems = document.querySelectorAll('.nav-menu-item, .mobile-drawer-link');
     
