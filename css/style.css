@@ -668,7 +668,7 @@ body.scrolled .nav-menu-item:hover {
     color: var(--text-dim);
 }
 
-/* 7. PROJECTS SECTION & GROUP HOVER */
+/* 7. PROJECTS SECTION */
 .projects {
     padding: 8rem 0;
 }
@@ -688,44 +688,30 @@ body.scrolled .nav-menu-item:hover {
 
 .work-card {
     position: relative;
-    background: #fff;
-    border: 1px solid rgba(0,0,0,0.1);
+    background: #FFFFFF;
+    border: 1px solid rgba(0,0,0,0.12);
     border-radius: 24px;
     padding: 2.5rem;
     overflow: hidden;
-    transition: var(--transition-smooth);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
 }
 
 .work-image-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(4px);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 2;
+    display: none; /* Removed heavy dimming overlay so cards are always crisp and 100% visible */
 }
 
-/* Signature heynesh.com Group Hover Effect */
-@media (min-width: 992px) {
-    .work-track:hover .work-card .work-image-overlay {
-        opacity: 1;
-    }
-    .work-track:hover .work-card:hover .work-image-overlay {
-        opacity: 0 !important;
-    }
-    .work-track:hover .work-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 30px 60px rgba(0,0,0,0.15);
-        border-color: var(--text-dark);
-    }
+.work-card:hover {
+    transform: translateY(-8px);
+    border-color: #000000;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.12), 0 0 0 2px #000000;
 }
 
 .work-card-content {
     position: relative;
     z-index: 3;
-
     display: flex;
     flex-direction: column;
     height: 100%;

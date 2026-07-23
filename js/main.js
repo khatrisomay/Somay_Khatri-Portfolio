@@ -109,13 +109,14 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.from('.work-card', {
         scrollTrigger: {
             trigger: '#projects',
-            start: 'top 75%',
+            start: 'top 85%',
         },
-        y: 60,
+        y: 40,
         opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'power3.out'
+        duration: 0.7,
+        stagger: 0.12,
+        ease: 'power3.out',
+        clearProps: 'all'
     });
 
     // Skills Section Stagger Reveal
