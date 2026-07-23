@@ -46,14 +46,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 4. ANIMATED NUMBER COUNTERS
-    const statElements = document.querySelectorAll('.stat-num');
+    const statElements = document.querySelectorAll('.stat-num, .nav-stat-number');
     statElements.forEach((el) => {
-        const targetStr = el.getAttribute('data-target');
+        const targetStr = el.getAttribute('data-target') || el.getAttribute('data-count');
+        if (!targetStr) return;
         const targetVal = parseFloat(targetStr);
 
         ScrollTrigger.create({
             trigger: el,
-            start: 'top 85%',
+            start: 'top 95%',
             once: true,
             onEnter: () => {
                 let countObj = { val: 0 };
