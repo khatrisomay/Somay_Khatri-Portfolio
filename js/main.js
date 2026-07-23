@@ -59,9 +59,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     anchor.classList.add('clicking');
                     setTimeout(() => anchor.classList.remove('clicking'), 300);
 
+                    // Update active nav button immediately
+                    navItems.forEach(item => {
+                        if (item.getAttribute('href') === targetId) {
+                            item.classList.add('active');
+                            gsap.fromTo(item, { scale: 0.88 }, { scale: 1.06, duration: 0.4, ease: 'back.out(1.8)' });
+                        } else {
+                            item.classList.remove('active');
+                        }
+                    });
+
                     // Smooth Lenis Scroll
                     lenis.scrollTo(targetEl, {
-                        offset: -90,
+                        offset: -70,
                         duration: 1.4,
                         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
                     });
@@ -70,13 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // SCROLLSPY ACTIVE HIGHLIGHT ANIMATION
-    const trackedSections = document.querySelectorAll('section[id], footer[id]');
+    // SCROLLSPY ACTIVE HIGHLIGHT ANIMATION FOR ALL SECTIONS
+    const trackedSections = document.querySelectorAll('section[id]');
     trackedSections.forEach((section) => {
         ScrollTrigger.create({
             trigger: section,
-            start: 'top 45%',
-            end: 'bottom 45%',
+            start: 'top 50%',
+            end: 'bottom 50%',
             onToggle: (self) => {
                 if (self.isActive) {
                     const id = section.getAttribute('id');
@@ -91,6 +101,60 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
+    });
+
+    // 3.6. GSAP STAGGERED ENTRANCE ANIMATIONS FOR ALL SECTIONS
+
+    // Projects Section Stagger Reveal
+    gsap.from('.work-card', {
+        scrollTrigger: {
+            trigger: '#projects',
+            start: 'top 75%',
+        },
+        y: 60,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: 'power3.out'
+    });
+
+    // Skills Section Stagger Reveal
+    gsap.from('.skill-category', {
+        scrollTrigger: {
+            trigger: '#skills',
+            start: 'top 75%',
+        },
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: 'power3.out'
+    });
+
+    // Experience Section Timeline Stagger Reveal
+    gsap.from('.timeline-item', {
+        scrollTrigger: {
+            trigger: '#experience',
+            start: 'top 75%',
+        },
+        x: -40,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: 'power3.out'
+    });
+
+    // FAQ Section Stagger Reveal
+    gsap.from('.faq-item', {
+        scrollTrigger: {
+            trigger: '#faq',
+            start: 'top 75%',
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: 'power3.out'
     });
 
     // 4. ANIMATED NUMBER COUNTERS
