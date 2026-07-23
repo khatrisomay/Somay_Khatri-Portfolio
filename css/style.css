@@ -575,9 +575,9 @@ body.scrolled .nav-menu-item:hover {
 
 /* 4. HERO SECTION WITH PARTICLES CANVAS & GLOW ORBS */
 .hero {
-    min-height: 100vh;
-    padding-top: 10rem;
-    padding-bottom: 6rem;
+    min-height: auto;
+    padding-top: 8rem;
+    padding-bottom: 2.5rem;
     display: flex;
     align-items: center;
     position: relative;
