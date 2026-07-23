@@ -1,6 +1,6 @@
 # Somay Khatri — Developer Portfolio Website
 
-A personal developer portfolio website designed with inspiration from [heynesh.com](https://heynesh.com/), showcasing cloud engineering, DevOps automation, and full-stack MERN projects.
+A personal developer portfolio website showcasing cloud engineering, DevOps automation, and full-stack MERN projects.
 
 ## 🚀 Features
 
