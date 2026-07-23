@@ -250,4 +250,30 @@ document.addEventListener('DOMContentLoaded', () => {
         delay: 1.2
     });
 
+    // 8. MOBILE MENU DRAWER LOGIC
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const mobileDrawerClose = document.getElementById('mobileDrawerClose');
+    const mobileDrawerLinks = document.querySelectorAll('.mobile-drawer-link');
+
+    if (mobileMenuBtn && mobileDrawer) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileDrawer.classList.add('open');
+        });
+    }
+
+    if (mobileDrawerClose && mobileDrawer) {
+        mobileDrawerClose.addEventListener('click', () => {
+            mobileDrawer.classList.remove('open');
+        });
+    }
+
+    mobileDrawerLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+            if (mobileDrawer) {
+                mobileDrawer.classList.remove('open');
+            }
+        });
+    });
+
 });
