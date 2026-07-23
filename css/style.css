@@ -2023,7 +2023,7 @@ body.scrolled .nav-menu-item:hover {
     }
     .hero {
         padding-top: 7rem;
-        padding-bottom: 3rem;
+        padding-bottom: 2rem;
         min-height: auto;
     }
     .hero-heading {
@@ -2044,10 +2044,14 @@ body.scrolled .nav-menu-item:hover {
         justify-content: center;
         padding: 0.9rem 1.2rem;
     }
+    .devops-loop-widget {
+        padding: 1rem 0.5rem;
+        border-radius: 16px;
+    }
     .hero-cards-wrap {
         grid-template-columns: 1fr;
         gap: 1rem;
-        margin-top: 2rem;
+        margin-top: 1.5rem;
     }
     .hero-card {
         padding: 1.25rem;
@@ -2096,10 +2100,13 @@ body.scrolled .nav-menu-item:hover {
         font-size: 0.7rem;
         padding: 0.2rem 0.5rem;
     }
+    .card-links-flex {
+        flex-direction: column;
+        width: 100%;
+    }
     .work-card-arrow-wrap {
         width: 100%;
         justify-content: center;
-        margin-top: 1rem;
     }
     .skills-categories-grid {
         grid-template-columns: 1fr;
@@ -2126,6 +2133,10 @@ body.scrolled .nav-menu-item:hover {
     .role-bullets {
         font-size: 0.88rem;
         padding-left: 1rem;
+    }
+    .enlarged-profile-img {
+        width: 260px;
+        height: 260px;
     }
     .faq-toggle {
         padding: 1.2rem 1.25rem;
