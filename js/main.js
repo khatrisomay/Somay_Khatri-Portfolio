@@ -45,6 +45,54 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // 3.5. SMOOTH ANCHOR LINK CLICK & NAVBAR ACTIVE ANIMATIONS
+    const navItems = document.querySelectorAll('.nav-menu-item');
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', (e) => {
+            const targetId = anchor.getAttribute('href');
+            if (targetId && targetId !== '#') {
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    e.preventDefault();
+                    
+                    // Click press animation effect
+                    anchor.classList.add('clicking');
+                    setTimeout(() => anchor.classList.remove('clicking'), 300);
+
+                    // Smooth Lenis Scroll
+                    lenis.scrollTo(targetEl, {
+                        offset: -90,
+                        duration: 1.4,
+                        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                    });
+                }
+            }
+        });
+    });
+
+    // SCROLLSPY ACTIVE HIGHLIGHT ANIMATION
+    const trackedSections = document.querySelectorAll('section[id], footer[id]');
+    trackedSections.forEach((section) => {
+        ScrollTrigger.create({
+            trigger: section,
+            start: 'top 45%',
+            end: 'bottom 45%',
+            onToggle: (self) => {
+                if (self.isActive) {
+                    const id = section.getAttribute('id');
+                    navItems.forEach((item) => {
+                        if (item.getAttribute('href') === `#${id}`) {
+                            item.classList.add('active');
+                            gsap.fromTo(item, { scale: 0.9 }, { scale: 1.06, duration: 0.4, ease: 'back.out(1.7)' });
+                        } else {
+                            item.classList.remove('active');
+                        }
+                    });
+                }
+            }
+        });
+    });
+
     // 4. ANIMATED NUMBER COUNTERS
     const statElements = document.querySelectorAll('.stat-num, .nav-stat-number');
     statElements.forEach((el) => {
