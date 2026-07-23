@@ -448,4 +448,25 @@ document.addEventListener('DOMContentLoaded', () => {
         drawCanvas();
     }
 
+    // 11. SOMAY KHATRI PHOTO CLICK TO ENLARGE LIGHTBOX
+    const profileWrap = document.getElementById('profileWrap');
+    const photoModal = document.getElementById('photoModal');
+    const photoModalClose = document.getElementById('photoModalClose');
+    const photoModalOverlay = document.getElementById('photoModalOverlay');
+
+    if (profileWrap && photoModal) {
+        profileWrap.addEventListener('click', () => {
+            photoModal.classList.add('open');
+        });
+    }
+
+    function closePhotoModal() {
+        if (photoModal) {
+            photoModal.classList.remove('open');
+        }
+    }
+
+    if (photoModalClose) photoModalClose.addEventListener('click', closePhotoModal);
+    if (photoModalOverlay) photoModalOverlay.addEventListener('click', closePhotoModal);
+
 });
