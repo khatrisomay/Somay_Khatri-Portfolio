@@ -179,6 +179,22 @@
                 </div>
             </div>
 
+            <!-- Hero Live Terminal Console & System Status Widget -->
+            <div class="hero-terminal-widget">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                    </div>
+                    <span class="terminal-title">somay@devops-node:~ (aws-us-east-1)</span>
+                    <span class="terminal-badge"><span class="pulse-green"></span> SYSTEM LIVE</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line"><span class="prompt">$</span> <span class="cmd">terraform apply -auto-approve</span> <span class="status-ok">✔ 4 resources created</span></div>
+                    <div class="terminal-line"><span class="prompt">$</span> <span class="cmd">docker build -t app:v2 .</span> <span class="status-ok">✔ Multi-stage image 42MB</span></div>
+                    <div class="terminal-line"><span class="prompt">$</span> <span class="cmd">kubectl get pods --namespace=prod</span> <span class="status-ok">3/3 Running (100% healthy)</span></div>
+                </div>
+            </div>
+
             <!-- Floating Hero Cards -->
             <div class="hero-cards-wrap">
                 <div class="hero-card card-1">
@@ -590,6 +606,29 @@
                         <div class="timeline-date">July 2026 – Present</div>
                         <h3 class="role-title">Web Administrator</h3>
                         <div class="company-name">SIT Xplore</div>
+                        
+                        <!-- Interactive Experience Graph Widget 1 -->
+                        <div class="exp-graph-widget">
+                            <div class="widget-header">
+                                <span class="widget-title">VPS DEPLOYMENT & CONTAINER HEALTH</span>
+                                <span class="widget-status"><span class="pulse-green"></span> 99.98% UPTIME</span>
+                            </div>
+                            <div class="widget-body">
+                                <div class="k8s-metrics-grid">
+                                    <div class="k8s-bar-group">
+                                        <div class="k8s-bar-label">HOSTINGER VPS</div>
+                                        <div class="k8s-bar-track"><div class="k8s-bar-fill fill-85"></div></div>
+                                        <div class="k8s-val">ACTIVE</div>
+                                    </div>
+                                    <div class="k8s-bar-group">
+                                        <div class="k8s-bar-label">JENKINS CI/CD</div>
+                                        <div class="k8s-bar-track"><div class="k8s-bar-fill fill-60"></div></div>
+                                        <div class="k8s-val">BUILD #148</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <ul class="role-bullets">
                             <li>Lead development of MERN-stack tourism booking platform, including invoices, coupons, and admin dashboard.</li>
                             <li>Manage Hostinger VPS deployment using Docker containerization and Jenkins automated CI/CD release cycles.</li>
@@ -605,6 +644,31 @@
                         <div class="timeline-date">June 2026 – July 2026</div>
                         <h3 class="role-title">Power BI Intern</h3>
                         <div class="company-name">Cognifyz Technologies</div>
+                        
+                        <!-- Interactive Experience Graph Widget 2 -->
+                        <div class="exp-graph-widget">
+                            <div class="widget-header">
+                                <span class="widget-title">EXECUTIVE BI REPORTING METRICS</span>
+                                <span class="widget-status highlight-text">100% ACCURACY</span>
+                            </div>
+                            <div class="widget-body">
+                                <div class="bi-metrics-flex">
+                                    <div class="bi-stat-pill">
+                                        <div class="bi-val">15+</div>
+                                        <div class="bi-lbl">Dashboards Built</div>
+                                    </div>
+                                    <div class="bi-stat-pill">
+                                        <div class="bi-val">DAX</div>
+                                        <div class="bi-lbl">Data Modeling</div>
+                                    </div>
+                                    <div class="bi-stat-pill">
+                                        <div class="bi-val">ETL</div>
+                                        <div class="bi-lbl">Power Query</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <ul class="role-bullets">
                             <li>Built executive Power BI dashboards from Excel and SQL datasets for real-world business intelligence reporting.</li>
                             <li>Applied DAX measures, data modeling, and visualization techniques to drive business decisions.</li>
@@ -619,6 +683,31 @@
                         <div class="timeline-date">Jul 2024 – Aug 2024 & Jul 2025 – Sept 2025</div>
                         <h3 class="role-title">DevOps Intern</h3>
                         <div class="company-name">Xebia IT Architects Pvt Ltd</div>
+                        
+                        <!-- Interactive Experience Graph Widget 3 -->
+                        <div class="exp-graph-widget">
+                            <div class="widget-header">
+                                <span class="widget-title">TERRAFORM CLOUD PROVISIONING</span>
+                                <span class="widget-status"><span class="pulse-green"></span> AWS PROVISIONED</span>
+                            </div>
+                            <div class="widget-body">
+                                <svg class="pipeline-svg" viewBox="0 0 400 65" fill="none">
+                                    <path d="M40 32 L130 32 M150 32 L240 32 M260 32 L340 32" stroke="#444" stroke-width="2" stroke-dasharray="4 4" class="animated-path"/>
+                                    <circle cx="30" cy="32" r="14" fill="#1A1A1A" stroke="#FFFF23" stroke-width="1.5"/>
+                                    <text x="30" y="35" text-anchor="middle" font-size="8" fill="#fff" font-weight="700">VPC</text>
+                                    
+                                    <circle cx="140" cy="32" r="14" fill="#1A1A1A" stroke="#FFFF23" stroke-width="1.5"/>
+                                    <text x="140" y="35" text-anchor="middle" font-size="8" fill="#fff" font-weight="700">EC2</text>
+                                    
+                                    <circle cx="250" cy="32" r="14" fill="#1A1A1A" stroke="#FFFF23" stroke-width="1.5"/>
+                                    <text x="250" y="35" text-anchor="middle" font-size="8" fill="#fff" font-weight="700">S3</text>
+                                    
+                                    <circle cx="350" cy="32" r="14" fill="#FFFF23"/>
+                                    <text x="350" y="35" text-anchor="middle" font-size="8" fill="#000" font-weight="900">IAM</text>
+                                </svg>
+                            </div>
+                        </div>
+
                         <ul class="role-bullets">
                             <li>Architected and deployed full-stack web applications adhering to modern DevOps methodologies.</li>
                             <li>Configured Docker containers, Jenkins pipelines, and provisioned AWS EC2, S3, and IAM resources via Terraform.</li>
