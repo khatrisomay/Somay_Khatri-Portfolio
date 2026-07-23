@@ -24,5 +24,5 @@ A personal developer portfolio website designed with inspiration from [heynesh.c
 
 **Somay Khatri**
 - Email: [Somaykhatri6555@gmail.com](mailto:Somaykhatri6555@gmail.com)
-- LinkedIn: [linkedin.com/in/Somay-Khatri](https://linkedin.com/in/Somay-Khatri)
+- LinkedIn: [somay-khatri-551333359](https://www.linkedin.com/in/somay-khatri-551333359/)
 - GitHub: [github.com/khatrisomay](https://github.com/khatrisomay)
