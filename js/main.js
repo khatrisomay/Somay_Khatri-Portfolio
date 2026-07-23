@@ -4,13 +4,45 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. PRELOADER DISMISSAL
+    // 1. INNOVATIVE AWS EC2 PRELOADER PROGRESS & LOG ANIMATION
     const preloader = document.getElementById('preloader');
-    setTimeout(() => {
-        if (preloader) {
-            preloader.classList.add('loaded');
+    const preloadBarFill = document.getElementById('preloadBarFill');
+    const preloadPercent = document.getElementById('preloadPercent');
+    const preloadStatusLog = document.getElementById('preloadStatusLog');
+
+    const awsLogs = [
+        "Initializing Terraform AWS Provider...",
+        "Provisioning AWS VPC Subnet (us-east-1a)...",
+        "Launching AWS EC2 t3.micro Instance...",
+        "Deploying Docker Containers & Microservices...",
+        "AWS Infrastructure 100% Ready! ✔"
+    ];
+
+    let progress = 0;
+    let logIndex = 0;
+
+    const progressInterval = setInterval(() => {
+        progress += Math.floor(Math.random() * 8) + 5;
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(progressInterval);
+
+            if (preloadStatusLog) preloadStatusLog.textContent = awsLogs[4];
+
+            setTimeout(() => {
+                if (preloader) preloader.classList.add('loaded');
+            }, 350);
         }
-    }, 800);
+
+        if (preloadBarFill) preloadBarFill.style.width = progress + '%';
+        if (preloadPercent) preloadPercent.textContent = progress + '%';
+
+        const step = Math.floor((progress / 100) * 4);
+        if (step !== logIndex && step < 4) {
+            logIndex = step;
+            if (preloadStatusLog) preloadStatusLog.textContent = awsLogs[logIndex];
+        }
+    }, 45);
 
     // 2. LENIS SMOOTH SCROLL INITIALIZATION
     const lenis = new Lenis({
