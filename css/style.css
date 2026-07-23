@@ -668,7 +668,7 @@ body.scrolled .nav-menu-item:hover {
     color: var(--text-dim);
 }
 
-/* 7. PROJECTS SECTION */
+/* 7. PROJECTS SECTION & INTERACTIVE GRAPH WIDGETS */
 .projects {
     padding: 8rem 0;
 }
@@ -676,7 +676,7 @@ body.scrolled .nav-menu-item:hover {
 .header-note {
     font-size: 0.85rem;
     color: var(--text-muted);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .work-track {
@@ -693,7 +693,7 @@ body.scrolled .nav-menu-item:hover {
     border-radius: 24px;
     padding: 2.5rem;
     overflow: hidden;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 10px 30px rgba(0,0,0,0.03);
     display: flex;
     flex-direction: column;
@@ -715,6 +715,232 @@ body.scrolled .nav-menu-item:hover {
     display: flex;
     flex-direction: column;
     height: 100%;
+}
+
+/* PROJECT GRAPH WIDGET STYLES (CLAUDE / FABLE INTERACTIVE GRAPH CARDS) */
+.project-graph-widget {
+    background: #121212;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 1.25rem;
+    margin: 1.2rem 0 1.5rem 0;
+    color: #fff;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+    transition: var(--transition-smooth);
+}
+
+.work-card:hover .project-graph-widget {
+    border-color: var(--yellow);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.widget-title {
+    color: #8C8C8C;
+    letter-spacing: 0.08em;
+}
+
+.widget-status {
+    color: #10B981;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.highlight-text {
+    color: var(--yellow) !important;
+}
+
+.pulse-green {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10B981;
+    box-shadow: 0 0 8px #10B981;
+    animation: pulse 1.8s infinite;
+}
+
+.widget-body {
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+/* 1. Pipeline SVG */
+.pipeline-svg {
+    width: 100%;
+    height: auto;
+}
+
+.animated-path {
+    animation: dashOffset 20s linear infinite;
+}
+
+@keyframes dashOffset {
+    to { stroke-dashoffset: -100; }
+}
+
+/* 2. K8s Metrics Grid */
+.k8s-metrics-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.k8s-bar-group {
+    display: grid;
+    grid-template-columns: 80px 1fr 40px;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.72rem;
+    font-family: var(--font-mono);
+}
+
+.k8s-bar-label {
+    color: #AAA;
+}
+
+.k8s-bar-track {
+    background: rgba(255,255,255,0.1);
+    height: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.k8s-bar-fill {
+    height: 100%;
+    background: var(--yellow);
+    border-radius: 10px;
+    transition: width 1s ease;
+}
+
+.fill-85 { width: 85%; }
+.fill-60 { width: 60%; }
+.fill-45 { width: 45%; }
+
+.k8s-val {
+    color: #fff;
+    font-weight: 700;
+    text-align: right;
+}
+
+/* 3. Bar Chart Grid */
+.bar-chart-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 70px;
+    padding-top: 10px;
+}
+
+.bar-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    flex: 1;
+}
+
+.bar-col span {
+    font-size: 0.65rem;
+    font-family: var(--font-mono);
+    color: #777;
+}
+
+.bar-item {
+    width: 12px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.active-bar, .bar-col:hover .bar-item {
+    background: var(--yellow) !important;
+    box-shadow: 0 0 10px rgba(255,255,35,0.5);
+}
+
+.h-60 { height: 60%; }
+.h-80 { height: 80%; }
+.h-45 { height: 45%; }
+.h-90 { height: 90%; }
+.h-70 { height: 70%; }
+.h-85 { height: 85%; }
+.h-50 { height: 50%; }
+
+/* 4. Power BI Donut */
+.bi-flex {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.donut-chart {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: conic-gradient(var(--yellow) 0% 70%, #FFFFFF 70% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.donut-center {
+    width: 42px;
+    height: 42px;
+    background: #121212;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.donut-legend {
+    font-size: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    color: #CCC;
+}
+
+.legend-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 0.4rem;
+}
+
+.yellow-dot { background: var(--yellow); }
+.white-dot { background: #FFFFFF; }
+
+/* 5. Latency Ping */
+.ping-svg {
+    width: 100%;
+    height: auto;
+}
+
+.animated-ping-line {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 0;
+    animation: dashPulse 3s ease-in-out infinite;
+}
+
+@keyframes dashPulse {
+    0%, 100% { stroke-dashoffset: 0; }
+    50% { stroke-dashoffset: 80; }
 }
 
 .work-meta {
